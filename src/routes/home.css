@@ -1,0 +1,36 @@
+#right {
+	width: 50%;
+	height: 50vh;
+	overflow: hidden;
+	text-align: right;
+	line-height: 72pt;
+	font-family: 'Red Hat Mono';
+	font-weight: 500;
+	font-size: 72pt;
+}
+
+#time {
+	font-size: 140pt;
+}
+
+.dot,
+.colon {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#left {
+	width: 50%;
+	height: 50vh;
+	text-align: center;
+	line-height: 212pt;
+	font-family: 'Red Hat Mono';
+	font-weight: 500;
+	font-size: 212pt;
+}
+
+#countdown {
+	height: 212pt;
+	border-left: 10pt solid;
+	text-indent: 10pt;
+	background-color: aqua;
+}
