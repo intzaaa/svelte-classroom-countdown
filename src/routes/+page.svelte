@@ -28,7 +28,7 @@
 	// Reload every night
 	function reload() {
 		if (browser) {
-			if (h == 0 && min == 0) {
+			if ((h == 0 || h == 12) && min == 0 && s == 0) {
 				window.location.reload();
 			}
 		}
