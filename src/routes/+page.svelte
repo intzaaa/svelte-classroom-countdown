@@ -29,14 +29,9 @@
 
 	// Reload every night
 	function reload() {
-		if (h == 0 && min == 0) {
-			onMount(() => window.location.reload());
-		}
+		onMount(() => window.location.reload());
 	}
-	setInterval(() => {
-		reload();
-	}, 1000);
-
+	setInterval(reload, 1000);
 	// Setup countdown
 	let now, targetHumane, target, interval;
 	now = Date.now();
@@ -98,6 +93,7 @@
 <style>
 	:global(body) {
 		background-image: url(https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=zh-CN) !important;
-		background-size: cover;
+		background-size: cover !important;
+		background-repeat: no-repeat !important;
 	}
 </style>
