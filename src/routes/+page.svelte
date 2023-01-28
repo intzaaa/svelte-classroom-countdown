@@ -108,7 +108,7 @@
 
 <div id="left" class="position-relative top-0 start-0">
 	<div id="countdown" class="position-absolute top-0 start-0">
-		{id}<span style="font-size: large;">天&nbsp&nbsp</span>
+		{id}<span style="font-size: large;">天&nbsp</span>
 	</div>
 </div>
 
