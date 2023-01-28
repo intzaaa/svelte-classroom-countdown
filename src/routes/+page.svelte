@@ -1,5 +1,6 @@
 <script>
 	// @ts-nocheck
+	import { onMount } from 'svelte';
 
 	import './home.css';
 
@@ -25,6 +26,16 @@
 		min = addZero(date.getMinutes());
 		s = addZero(date.getSeconds());
 	}
+
+	// Reload every night
+	function reload() {
+		if (h == 0 && min == 0) {
+			onMount(() => window.location.reload());
+		}
+	}
+	setInterval(() => {
+		reload();
+	}, 1000);
 
 	// Setup countdown
 	let now, targetHumane, target, interval;
@@ -81,11 +92,12 @@
 	<div id="time">
 		<b>{h}</b><span class="colon">:</span><b>{min}</b><span class="colon">:</span><b>{s}</b>
 	</div>
-	<div id="date">{y}<span class="dot">.</span>{mon}<span class="dot">.</span>{d}</div>
+	<div id="date">-{y}<span class="dot">.</span>{mon}<span class="dot">.</span>{d}-</div>
 </div>
 
 <style>
 	:global(body) {
-		background-image: url(./school-img.jfif) !important;
+		background-image: url(https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=zh-CN) !important;
+		background-size: cover;
 	}
 </style>
