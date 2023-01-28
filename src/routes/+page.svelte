@@ -25,10 +25,14 @@
 	}
 
 	// Reload every night
-	// function reload() {
-	// 	onMount(() => window.location.reload());
-	// }
-	// setInterval(reload, 1000);
+	function reload() {
+		if (browser) {
+			if (h == 0 && min == 0) {
+				window.location.reload();
+			}
+		}
+	}
+	setInterval(reload, 1000);
 
 	// Setup countdown
 	let urlstring;
@@ -37,6 +41,9 @@
 	}
 	let now, targetHumane, target, interval;
 	now = Date.now();
+	setInterval(() => {
+		now = Date.now();
+	}, 1);
 	targetHumane = {
 		y: date.getFullYear() + 1,
 		mon: 6,
@@ -85,10 +92,10 @@
 			target = url.searchParams.get('timestamp');
 		}
 	}
-	interval = target - now;
 	let id;
 	$: {
-		id = Math.ceil(interval / 86400000);
+		// id = Math.ceil(interval / 86400000);
+		id = interval = Math.ceil((target - now) / 86400000);
 	}
 </script>
 
@@ -115,7 +122,9 @@
 
 <div id="right" class="position-absolute top-50 start-50 translate-middle">
 	<div id="time">
-		<b>{h}</b><span class="colon">:</span><b>{min}</b><span class="colon">:</span><b>{s}</b>
+		<b>{h}</b><span class="colon">:</span><b>{min}</b><span class="colon">:</span><b
+			style="color: red;">{s}</b
+		>
 	</div>
 	<div id="date">-{y}<span class="dot">.</span>{mon}<span class="dot">.</span>{d}-</div>
 </div>

@@ -3,8 +3,9 @@
 	height: 45vh;
 	overflow: hidden;
 	text-align: center;
-	font-family: 'Red Hat Mono';
+	font-family: 'Share Tech Mono';
 	font-weight: 500;
+
 	color: white;
 }
 
@@ -20,8 +21,14 @@
 	font-display: block;
 }
 
+@font-face {
+	font-family: Share Tech Mono;
+	src: url(./ShareTechMono-Regular.ttf);
+	font-display: block;
+}
+
 #time {
-	letter-spacing: 0;
+	letter-spacing: -0.1em;
 	margin: 0;
 	padding: 0;
 	line-height: 25vh;
@@ -49,7 +56,7 @@
 	border-left: 10pt solid;
 	line-height: 100%;
 	background-color: aqua;
-	text-indent: 10pt;
+	text-indent: 15pt;
 	font-family: 'Red Hat Mono';
 	font-weight: 500;
 	font-size: 25vh;
