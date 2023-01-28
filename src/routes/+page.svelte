@@ -1,15 +1,13 @@
 <script>
 	// @ts-nocheck
-	import { onMount } from 'svelte';
-
+	import { browser } from '$app/environment';
+	// import css
 	import './home.css';
-
+	// Show time
 	let date = new Date();
 	setInterval(() => {
 		date = new Date();
 	}, 1);
-
-	// Show time
 	let y, mon, d, h, min, s;
 	function addZero(num) {
 		if (num < 10) {
@@ -17,7 +15,6 @@
 		}
 		return num;
 	}
-
 	$: {
 		y = date.getFullYear();
 		mon = addZero(date.getMonth() + 1);
@@ -28,21 +25,47 @@
 	}
 
 	// Reload every night
-	function reload() {
-		onMount(() => window.location.reload());
-	}
-	setInterval(reload, 1000);
+	// function reload() {
+	// 	onMount(() => window.location.reload());
+	// }
+	// setInterval(reload, 1000);
+
 	// Setup countdown
+	let urlstring;
+	if (browser) {
+		urlstring = window.location.href;
+	}
 	let now, targetHumane, target, interval;
 	now = Date.now();
 	targetHumane = {
-		y: 2024,
+		y: date.getFullYear() + 1,
 		mon: 6,
 		d: 7,
 		h: 0,
 		min: 0,
 		s: 0
 	};
+	if (browser) {
+		let url = new URL(urlstring);
+		if (url.searchParams.get('year')) {
+			targetHumane.y = url.searchParams.get('year');
+		}
+		if (url.searchParams.get('month')) {
+			targetHumane.mon = url.searchParams.get('month');
+		}
+		if (url.searchParams.get('day')) {
+			targetHumane.d = url.searchParams.get('day');
+		}
+		if (url.searchParams.get('hour')) {
+			targetHumane.h = url.searchParams.get('hour');
+		}
+		if (url.searchParams.get('minute')) {
+			targetHumane.min = url.searchParams.get('minute');
+		}
+		if (url.searchParams.get('second')) {
+			targetHumane.s = url.searchParams.get('second');
+		}
+	}
 	target = Date.parse(
 		targetHumane.y +
 			'/' +
@@ -56,10 +79,16 @@
 			':' +
 			targetHumane.s
 	);
+	if (browser) {
+		let url = new URL(urlstring);
+		if (url.searchParams.get('timestamp')) {
+			target = url.searchParams.get('timestamp');
+		}
+	}
 	interval = target - now;
 	let id;
 	$: {
-		id = Number(interval / 86400000).toFixed(0);
+		id = Math.ceil(interval / 86400000);
 	}
 </script>
 
