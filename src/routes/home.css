@@ -1,16 +1,37 @@
 #right {
-	width: 50%;
-	height: 50vh;
+	width: 100%;
+	height: 45vh;
 	overflow: hidden;
-	text-align: right;
-	line-height: 72pt;
+	text-align: center;
 	font-family: 'Red Hat Mono';
 	font-weight: 500;
-	font-size: 72pt;
+	color: white;
+}
+
+@font-face {
+	font-family: Red Hat Mono;
+	src: url(./RedHatMono-VariableFont_wght.ttf);
+	font-display: block;
+}
+
+@font-face {
+	font-family: Red Hat Mono Italic;
+	src: url(./RedHatMono-Italic-VariableFont_wght.ttf);
+	font-display: block;
 }
 
 #time {
-	font-size: 140pt;
+	margin: 0;
+	padding: 0;
+	line-height: 25vh;
+	font-size: 172pt;
+}
+
+#date {
+	margin: 0;
+	padding: 0;
+	line-height: 5vh;
+	font-size: 10vh;
 }
 
 .dot,
@@ -21,16 +42,15 @@
 #left {
 	width: 50%;
 	height: 50vh;
-	text-align: center;
-	line-height: 212pt;
-	font-family: 'Red Hat Mono';
-	font-weight: 500;
-	font-size: 212pt;
 }
 
 #countdown {
-	height: 212pt;
+	height: 25vh;
 	border-left: 10pt solid;
-	text-indent: 10pt;
+	line-height: 100%;
 	background-color: aqua;
+	text-indent: 10pt;
+	font-family: 'Red Hat Mono';
+	font-weight: 500;
+	font-size: 25vh;
 }

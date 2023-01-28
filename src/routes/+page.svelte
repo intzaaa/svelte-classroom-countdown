@@ -73,13 +73,19 @@
 
 <div id="left" class="position-relative top-0 start-0">
 	<div id="countdown" class="position-absolute top-0 start-0">
-		{id}<span style="font-size: large;">day&nbsp&nbsp</span>
+		{id}<span style="font-size: large;">天&nbsp&nbsp</span>
 	</div>
 </div>
 
-<div id="right" class="position-absolute top-0 end-0">
-	<p id="date">{y}<span class="dot">.</span>{mon}<span class="dot">.</span>{d}</p>
-	<p id="time">
+<div id="right" class="position-absolute top-50 start-50 translate-middle">
+	<div id="time">
 		<b>{h}</b><span class="colon">:</span><b>{min}</b><span class="colon">:</span><b>{s}</b>
-	</p>
+	</div>
+	<div id="date">{y}<span class="dot">.</span>{mon}<span class="dot">.</span>{d}</div>
 </div>
+
+<style>
+	:global(body) {
+		background-image: url(./school-img.jfif) !important;
+	}
+</style>
