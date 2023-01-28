@@ -1,0 +1,17 @@
+@font-face {
+	font-family: Red Hat Mono;
+	src: url(/RedHatMono-VariableFont_wght.ttf);
+	font-display: block;
+}
+
+@font-face {
+	font-family: Red Hat Mono Italic;
+	src: url(/RedHatMono-Italic-VariableFont_wght.ttf);
+	font-display: block;
+}
+
+@font-face {
+	font-family: Share Tech Mono;
+	src: url(/ShareTechMono-Regular.ttf);
+	font-display: block;
+}

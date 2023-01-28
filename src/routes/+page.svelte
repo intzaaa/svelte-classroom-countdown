@@ -2,7 +2,8 @@
 	// @ts-nocheck
 	import { browser } from '$app/environment';
 	// import css
-	import './home.css';
+	import './page.css';
+	import './font.css';
 	// Show time
 	let date = new Date();
 	setInterval(() => {
