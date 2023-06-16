@@ -74,28 +74,40 @@
 			targetHumane.s = url.searchParams.get('second');
 		}
 	}
-	target = Date.parse(
-		targetHumane.y +
-			'/' +
-			targetHumane.mon +
-			'/' +
-			targetHumane.d +
-			' ' +
-			targetHumane.h +
-			':' +
-			targetHumane.min +
-			':' +
-			targetHumane.s
-	);
+	target = new Date(
+		Number(targetHumane.y),
+		Number(targetHumane.mon) - 1,
+		Number(targetHumane.d),
+		Number(targetHumane.h),
+		Number(targetHumane.min),
+		Number(targetHumane.s)
+	).getTime();
+	let title = '高考';
+	if (browser) {
+		let url = new URL(urlstring);
+		if (url.searchParams.get('title')) {
+			title = url.searchParams.get('title');
+		}
+	}
 	if (browser) {
 		let url = new URL(urlstring);
 		if (url.searchParams.get('timestamp')) {
 			target = url.searchParams.get('timestamp');
 		}
 	}
-	let id;
+	let id, week, day;
 	$: {
 		// id = Math.ceil(interval / 86400000);
+		week =
+			(new Date(
+				new Date(target).getFullYear(),
+				new Date(target).getMonth(),
+				new Date(target).getDate()
+			).getTime() -
+				new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime() -
+				(7 - date.getDay() + new Date(target).getDay()) * 86400000) /
+			604800000;
+		day = 7 - date.getDay() + new Date(target).getDay();
 		id = interval = Math.ceil((target - now) / 86400000);
 	}
 </script>
@@ -119,7 +131,10 @@
 
 <div id="left" class="position-relative top-0 start-0">
 	<div id="countdown" class="position-absolute top-0 start-0">
-		{id}<span style="font-size: large;">天&nbsp</span>
+		<span style="font-size: large;">距离{title}还有&nbsp</span>{day}+{week}×7={id}<span
+			style="font-size: large;"
+			>天&nbsp
+		</span>
 	</div>
 </div>
 

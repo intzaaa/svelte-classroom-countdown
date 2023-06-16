@@ -33,14 +33,14 @@
 }
 
 #countdown {
-	height: 25vh;
+	height: 15vh;
 	border-left: 10pt solid;
 	line-height: 100%;
 	background-color: aqua;
 	text-indent: 15pt;
 	font-family: 'Red Hat Mono';
 	font-weight: 500;
-	font-size: 25vh;
+	font-size: 15vh;
 }
 
 * {
